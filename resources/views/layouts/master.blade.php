@@ -239,15 +239,32 @@
 											<p>Personas</p>
 										</router-link>
 									</li>
-									<li class="nav-item">
+									{{-- <li class="nav-item">
 										<router-link to="/vehiculos" class="nav-link">
 										    <i class="fa fa-list"></i>
 											<p>Vehículos</p>
 										</router-link>
-									</li>
+									</li> --}}
 									
 									<li class="nav-item">
 										<router-link to="/multas" class="nav-link">
+										    <i class="fa fa-list"></i>
+											<p>Multas</p>
+										</router-link>
+									</li>
+								</ul>
+							</li>
+							<li class="nav-item has-treeview">
+								<a href="#" class="nav-link">
+									<i class="nav-icon fa fa-credit-card"></i>
+									<p>
+										Registro
+										<i class="fa fa-angle-right right"></i>
+									</p>
+								</a>
+								<ul class="nav nav-treeview">
+									<li class="nav-item">
+										<router-link to="/registromultas" class="nav-link">
 										    <i class="fa fa-list"></i>
 											<p>Multas</p>
 										</router-link>

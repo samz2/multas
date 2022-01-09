@@ -91,6 +91,7 @@ const routes = [
     { path: '/usuarios', component: require('./components/admin/usuarios.vue') },
     { path: '/personas', component: require('./components/admin/personas.vue') },
     { path: '/multas', component: require('./components/admin/multas.vue') },
+    { path: '/registromultas', component: require('./components/admin/registromultas.vue') },
 ];
 
 // Create the route instance
@@ -117,6 +118,7 @@ Vue.component('uploads', require('./components/uploads.vue'));
 Vue.component('moon-loader', require('vue-spinner/src/MoonLoader.vue'));
 
 Vue.component('perfil1', require('./components/templates/perfil1.vue'));
+Vue.component('registroMultasT', require('./components/templates/registroMultasT.vue'));
 Vue.component('PersonaT', require('./components/templates/PersonaT.vue'));
 Vue.component('MultasT', require('./components/templates/MultasT.vue'));
 Vue.component('perfil2', require('./components/templates/perfil2.vue'));

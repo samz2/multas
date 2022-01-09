@@ -5,15 +5,17 @@
 			 <div class="col-md-12">
 	            <div class="card card-info"  v-if="formulario">
 	                <div class="card-header bg-azul text-center">
-	                    <h4 class="title">PERSONAS</h4>  
+	                    <h4 class="title">Registrar Multa</h4>  
 	                </div>
 					<div class="card-body">
-	                        <div class="row">
+	                    <fieldset class="border p-2">
+                            <legend class="w-auto t16 text-primary"><b>Titular</b></legend>
+                            <div class="row">
 								<label for="" class="col-md-2">Documento:</label>
                                 <div class="input-group col-md-4">
-									<input type="text" class="form-control" v-model="persona.dni" placeholder="DNI">
+									<input type="text" class="form-control" v-model="registro.dni" placeholder="DNI">
 									<div class="input-group-append">
-										<button class="btn btn-primary" @click="consulta(persona.dni)"><i class="fa fa-search"></i></button>
+										<button class="btn btn-primary"  @click="consulta(registro.dni)"><i class="fa fa-search"></i></button>
 									</div>
 								</div>
 							</div>
@@ -21,35 +23,74 @@
 							<div class="row">
 								<label for="" class="col-md-2">Nombre:</label>
 								<div class="col-md-4">
-									<input type="text" class="form-control" v-model="persona.nombre">
+									<input type="text" readonly class="form-control" v-model="persona.nombre">
 								</div>
 							</div>
 							<br>
 							<div class="row" v-if="personanatural">
 								<label for="" class="col-md-2">Apellidos:</label>
 								<div class="col-md-4">
-									<input type="text" class="form-control" v-model="persona.apellidos">
+									<input type="text" readonly class="form-control" v-model="persona.apellidos">
 								</div>
 							</div>
 							<br>
 							<div class="row">
 								<label for="" class="col-md-2">Dirección:</label>
 								<div class="col-md-4">
-									<input type="text" class="form-control" v-model="persona.direccion">
+									<input type="text" readonly class="form-control" v-model="persona.direccion">
 								</div>
 							</div>
 							<br>
 							<div class="row" v-if="personanatural">
 								<label for="" class="col-md-2">Fecha Nacimiento:</label>
 								<div class="col-md-4">
-									<input type="date" class="form-control" v-model="persona.fechaNac">
+									<input readonly type="date" class="form-control" v-model="persona.fechaNac">
 								</div>
 							</div>
 							<br>
+                        </fieldset>    
+                        <fieldset class="border p-2">
+                            <legend class="w-auto t16 text-primary"><b>Datos Vehículo</b></legend>
+                            <div class="form-group row">  
+                                <div class="col-md-2">
+                                <label>Placa (*)</label>
+                                </div>                             
+                                <div class="col-md-2">
+                                   <input type="text" v-model="registro.placa" class="form-control form-control-sm">
+                                </div>
+                            </div>    
+                            <div class="form-group row">      
+                                 <div class="col-md-2 text-left">
+                                    <label>Año Fabricación (*)</label>
+                                 </div>
+                                <div class="col-md-2">
+                                    <input type="number" v-model="registro.fabricacion" class="form-control form-control-sm"  min="1990" max="2022">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-2 text-left">
+                                    <label>Modelo (*)</label>
+                                 </div>
+                                <div class="col-md-5">
+                                <input type="text" v-model="registro.modelo" class="form-control form-control-sm"  maxlength="60">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="border p-2">
+                            <legend class="w-auto t16 text-primary"><label>Tipo Multa</label></legend>
+                            <div class="form-group row" id="dni">  
+                                <div class="col-md-2">
+                                    <label>Multa (*)</label>
+                                </div>                             
+                                <div class="col-md-6">
+                                    <v-select v-model="multaz" :options="multas" :value="multas.code"> </v-select>
+                                </div>
+                            </div>    
+                        </fieldset>    
 							<div class="row text-left">
 								<div class="col-md-2">
-									<button @click="addPersona()" v-if="add" class="btn bg-navy">Agregar  <i class="fa fa-save"></i></button>
-                                    <button @click="editPersona()" v-if="editar" class="btn bg-navy">Editar  <i class="fa fa-edit"></i></button>
+									<button @click="addRegistro()" v-if="add" class="btn bg-navy">Agregar  <i class="fa fa-save"></i></button>
+                                    <button @click="editRegistro()" v-if="editar" class="btn bg-navy">Editar  <i class="fa fa-edit"></i></button>
 								</div>
 								<div class="col-md-2">
 									<button  class="btn bg-olive" @click="ocultar('2')">
@@ -66,7 +107,7 @@
 			 <div class="col-md-12">
 				<div class="card card-info">
 	                <div class="card-header text-center bg-azul">
-	                    <h4 class="title">PERSONAS <button  class="btn bg-navy" @click="ocultar('1')"> <i class="fa fa-plus"></i></button></h4>  
+	                    <h4 class="title">Registro Multas<button  class="btn bg-navy" @click="ocultar('1')"> <i class="fa fa-plus"></i></button></h4>  
 	                </div>
 	                <div class="card-body">
 						<div class="content table-responsive table-full-width">
@@ -82,17 +123,7 @@
 			 </div>
 			</div>	
 	</div>
-    <div class="container-fluid" id="error">
-        <div class="row">
-            <div class="col-md-12">
-				<div class="card card-default">
-	                <div class="card-body">
-						<h1 style="color: red">Usted no tiene acceso a esta vista</h1>  
-					</div>
-	    		</div>
-			 </div>
-        </div>
-    </div>
+    
     </div>	
 </template>
 
@@ -100,12 +131,22 @@
     export default {
     data() {
         return {
+            multas:[{label:null,code:null}],
 			personanatural	: false,
 			personajuridica : false,
 			formulario 		: false,
 			lista 			: true,
 			editar 			: false,
 			add 			: true,
+			multaz 			: null,
+            registro:
+            {
+				dni			: null,
+                placa		:null,
+                fabricacion	:null,
+                modelo		:null,
+                multa		:null,
+            },
 			persona:{
                 dni			: null,
                 nombre		: null,
@@ -156,12 +197,27 @@
 	},
 	created(){
         this.getDatos();
+        this.getMultas();
         this.getAutenticacion();
 	},
 	mounted(){
         $('#error').hide();
 	},
     methods: {
+        getMultas()
+        {
+
+            this.$Progress.start();
+            axios.get("getMultasLista")
+            .then(data=>
+            {
+                this.multas = data.data.multas;
+                this.$Progress.finish();
+            }
+            ).catch(error=>{
+                console.log(error);
+            })
+        },
         getAutenticacion()
         {
             this.$Progress.start();
@@ -263,10 +319,12 @@
             this.nivel.id = id;
             this.nivel.nivel = nivel;
 		},
-		addPersona()
+		addRegistro()
 		{
-			axios.post("addPersona",{
-				persona:this.persona
+			this.registro.multa = this.multaz.code;
+			axios.post("addRegistro",{
+				persona:this.persona,
+				registro:this.registro,
 			}).then(data=>{
 				swal({
 					type: data.data.type,
@@ -288,14 +346,18 @@
 		},
 		load()
 		{
-			this.formulario 		= false;
-			this.lista 				= true;	
-			this.persona.dni		= null;
-			this.persona.nombre		= null;
-			this.persona.apellidos	= null;
-			this.persona.direccion	= null;
-			this.persona.fechaNac	= null;
-			this.persona.Tipo		= null;
+			this.formulario 			= false;
+			this.lista 					= true;	
+			this.persona.dni			= null;
+			this.persona.nombre			= null;
+			this.persona.apellidos		= null;
+			this.persona.direccion		= null;
+			this.persona.fechaNac		= null;
+			this.persona.Tipo			= null;
+			this.registro.dni			= null;
+			this.registro.placa			= null;
+			this.registro.fabricacion	= null;
+			this.registro.modelo		= null;
 		}
     }
 }

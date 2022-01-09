@@ -36,6 +36,8 @@ Route::post('/addMulta', 'MultasController@store');
 Route::get('/getMultas', 'MultasController@index');
 Route::get('/getMultasLista', 'MultasController@show');
 Route::get('/getResponse', 'MultasController@create');
+
+Route::post('/addRegistro', 'RegistroMultasController@store');
 //rutas administrador
 
 Route::get('{path}', 'HomeController@index');
