@@ -281,8 +281,8 @@
 								</a>
 								<ul class="nav nav-treeview">
 									<li class="nav-item">
-										<router-link to="/pensiones" class="nav-link">
-										    <i class="fa fa-dollar"></i>
+										<router-link to="/reportemultas" class="nav-link">
+										    <i class="fa fa-list"></i>
 											<p>Multas</p>
 										</router-link>
 									</li>
@@ -298,7 +298,7 @@
 							</li>
 							<li class="nav-item has-treeview">
 								<a href="#" class="nav-link">
-									<i class="nav-icon fa fa-folder"></i>
+									<i class="nav-icon fa fa-credit-card"></i>
 									<p>
 										Registro
 										<i class="fa fa-angle-right right"></i>
@@ -306,119 +306,14 @@
 								</a>
 								<ul class="nav nav-treeview">
 									<li class="nav-item">
-										<router-link to="/registro" class="nav-link">
-									      <i class="fa fa-address-book nav-icon text-primary"></i>
-											<p>Registro de notas</p>
-										</a>
-									</li>
-									<li class="nav-item">
-										<router-link to="/notas" class="nav-link">
-									      <i class="fa fa-address-book nav-icon text-success"></i>
-											<p>Visualizar notas</p>
-										</a>
-									</li>
-								</ul>
-							</li>
-							<li class="nav-item has-treeview">
-								<a href="#" class="nav-link">
-									<i class="nav-icon fa fa-folder"></i>
-									<p>
-										Tareas
-										<i class="fa fa-angle-right right"></i>
-									</p>
-								</a>
-								<ul class="nav nav-treeview">
-									<li class="nav-item">
-										<router-link to="/tareas" class="nav-link">
-									      <i class="fa fa-upload nav-icon text-primary"></i>
-											<p>Subir Tareas</p>
-										</a>
-									</li>
-									<li class="nav-item">
-										<router-link to="/revisar" class="nav-link">
-									      <i class="fa fa-download nav-icon text-danger"></i>
-											<p>Revisar Tareas</p>
-										</a>
-									</li>
-								</ul>
-							</li>
-							@break
-							@case(3)
-							<li class="nav-item has-treeview">
-								<a href="{{asset('home')}}" class="nav-link">
-									<i class="nav-icon fa fa-user-circle"></i>
-									<p>Perfil</p>
-								</a>
-							</li>
-							<li class="nav-item has-treeview">
-								<a href="{{asset('mihorario')}}" class="nav-link">
-									<i class="nav-icon fa fa-calendar"></i>
-									<p>horario</p>
-								</a>
-							</li>
-							<li class="nav-item has-treeview">
-								<a href="{{asset('miscursos')}}" class="nav-link">
-									<i class="nav-icon fa fa-list"></i>
-									<p>Cursos</p>
-								</a>
-							</li>
-							<li class="nav-item has-treeview">
-								<a href="{{asset('boletainformativa')}}" target="_blank" class="nav-link">
-									<i class="nav-icon fa fa-list"></i>
-									<p>Boleta de notas</p>
-								</a>
-							</li>
-							@break
-							@case(4)
-							<li class="nav-item has-treeview">
-								<a href="home" class="nav-link">
-									<i class="nav-icon fa fa-user-circle"></i>
-									<p>Perfil</p>
-								</a>
-							</li>
-							<li class="nav-item has-treeview">
-								<a href="#" class="nav-link">
-									<i class="nav-icon fa fa-folder"></i>
-									<p>
-										Asistencia
-										<i class="fa fa-angle-right right"></i>
-									</p>
-								</a>
-								<ul class="nav nav-treeview">
-									<li class="nav-item">
-										<router-link to="/asistencia" class="nav-link">
-											<i class="fa fa-address-book nav-icon"></i>
-											<p>Asistencia</p>
+										<router-link to="/registromultas" class="nav-link">
+										    <i class="fa fa-list"></i>
+											<p>Multas</p>
 										</router-link>
 									</li>
 								</ul>
 							</li>
-							<li class="nav-item has-treeview">
-									<a href="#" class="nav-link">
-										<i class="nav-icon fa fa-folder"></i>
-										<p>
-											Comportamiento
-											<i class="fa fa-angle-right right"></i>
-										</p>
-									</a>
-									<ul class="nav nav-treeview">
-										<li class="nav-item">
-											<router-link to="/comportamiento" class="nav-link">
-												<i class="fa fa-eye"></i>
-												<p>Comportamiento</p>
-											</router-link>
-										</li>
-									</ul>
-								</li>
 							
-							@break
-							@case(5)
-							<li class="nav-item has-treeview">
-								<a href="home" class="nav-link">
-									<i class="nav-icon fa fa-list text-success"></i>
-									<p>Tareas de docentes</p>
-								</a>
-							</li>
 							@break
 						@endswitch
 					</ul>

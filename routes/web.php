@@ -9,12 +9,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('/', function () {
-//     return view('auth.login');
-// })->middleware('checkAuth');;
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 })->middleware('checkAuth');;
+// Route::get('/', function () {
+//     return view('welcome');
+// })->middleware('checkAuth');;
 Route::get('/uniforme', function () {
     return view('vistas.uniforme');
 });
@@ -35,6 +35,8 @@ Route::get('/getPersonas', 'personaController@index');
 Route::post('/addMulta', 'MultasController@store');
 Route::get('/getMultas', 'MultasController@index');
 Route::get('/getMultasLista', 'MultasController@show');
+Route::get('/getMultasImpagas/{fechai}/{fechaf}', 'MultasController@multas');
+Route::get('/reporte/{fechai}/{fechaf}', 'MultasController@reporte');
 Route::get('/getResponse', 'MultasController@create');
 
 Route::post('/addRegistro', 'RegistroMultasController@store');
