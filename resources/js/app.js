@@ -125,6 +125,7 @@ Vue.component('PersonaT', require('./components/templates/PersonaT.vue'));
 Vue.component('MultasT', require('./components/templates/MultasT.vue'));
 Vue.component('perfil2', require('./components/templates/perfil2.vue'));
 Vue.component('perfil3', require('./components/templates/perfil3.vue'));
+Vue.component('error', require('./components/templates/error.vue'));
 Vue.component('v-select', vSelect);
 
 

@@ -20,7 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    {{-- <body style="background-image: url('img/fondo1.png');background-size: 100% 100%;background-repeat: no-repeat;"> --}}
+    <body style="background-image: url('img/fondo.jpg');background-size: 100% 100%;background-repeat: no-repeat;">
     <div id="app">
         <main class="py-4">
             @yield('content')

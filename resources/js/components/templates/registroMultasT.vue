@@ -198,7 +198,6 @@
 	created(){
         this.getDatos();
         this.getMultas();
-        this.getAutenticacion();
 	},
 	mounted(){
         $('#error').hide();

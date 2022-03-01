@@ -20,6 +20,13 @@ class personaController extends Controller
         return compact("personas");
     }
 
+    public function ver()
+    {
+        $user = \Auth::user()->user;
+        $persona = Persona::where("Documento",$user)->first();
+        return compact("persona");
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -55,7 +62,12 @@ class personaController extends Controller
             $persona->Apellidos         = $request->persona["apellidos"];
             $persona->Direccion         = $request->persona["direccion"];
             $persona->Fecha_Nac         = $request->persona["fechaNac"];
+            $user = new User();
+            $user->user                 = $request->persona["dni"];
+            $user->password             = bcrypt($request->persona["dni"]);
+            $user->tipo                 = 2;
             $persona->save();
+            $user->save();
             $msg    = "Persona registrada correctamente";
             $type   = "success";
         }
@@ -103,8 +115,9 @@ class personaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($dni)
     {
-        //
+        $persona = Persona::where("Documento",$dni)->delete();
+        return "bien";
     }
 }

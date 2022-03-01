@@ -9,7 +9,7 @@
 	                </div>
 					<div class="card-body">
                         <fieldset class="border p-2">
-                                <legend class="w-auto t16 text-primary"><b>Datos Docente</b></legend>
+                                <legend class="w-auto t16 text-primary"><b>Datos Encargado</b></legend>
                                 <div class="form-group row">      
                                     <div class="col-md-2 text-left">
                                         <label>Nombre (*)</label>
@@ -20,18 +20,10 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-2 text-left">
-                                        <label>A. Paterno (*)</label>
+                                        <label>Apellidos (*)</label>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="text" id="anormal" v-model="docente.paterno" readonly class="form-control form-control-sm">
-                                    </div>
-                                </div>
-                                 <div class="form-group row">
-                                    <div class="col-md-2 text-left">
-                                        <label>A. Materno (*)</label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" id="anormal" v-model="docente.materno" readonly class="form-control form-control-sm">
+                                        <input type="text" id="anormal" v-model="docente.apellidos" readonly class="form-control form-control-sm">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -39,33 +31,10 @@
                                         <label>Direccion (*)</label>
                                     </div>
                                     <div class="col-md-5">
-                                        <input type="text" id="dnormal" readonly v-model="docente.dir" class="form-control form-control-sm">
+                                        <input type="text" id="dnormal" readonly v-model="docente.direccion" class="form-control form-control-sm">
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col-md-2 text-left">
-                                        <label class="t12">Fecha de Nacimiento (*)</label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="date" id="fnormal" readonly v-model="docente.fecha" class="form-control form-control-sm"  maxlength="60">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-2 text-left">
-                                        <label>Celular (*)</label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" id="cnormal" readonly v-model="docente.cel" class="form-control form-control-sm">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-2 text-left">
-                                        <label>E-Mail (*)</label>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input v-model="docente.correo" id="enormal" readonly class="form-control form-control-sm">
-                                    </div>
-                                </div>
+                                
                                 <div class="form-group row">
                                     <div class="col-md-2 text-left">
                                         <label>Contraseña (*)</label>
@@ -113,14 +82,8 @@
         return {
 			docente:{
                 nombre:null,
-                paterno:null,
-                materno:null,
-                dir:null,
-                fecha:null,
-                cel:null,
-                correo:null,
-                pass:null,
-                editar:false
+                apellidos:null,
+                direccion:null,
 			},
 			ojo:false,
         }
@@ -146,16 +109,12 @@
 		getDatos()
         {
             this.$Progress.start();
-            axios.get("datosDocente")
+            axios.get("getPersona")
             .then(data=>
             {
-                this.docente.nombre = data.data.docente.Nombre;
-                this.docente.paterno    = data.data.docente.Paterno;
-                this.docente.materno    = data.data.docente.Materno;
-                this.docente.dir    = data.data.docente.Direccion;
-                this.docente.fecha  = data.data.docente.Fecha;
-                this.docente.cel    = data.data.docente.Celular;
-                this.docente.correo = data.data.docente.Correo;
+                this.docente.nombre = data.data.persona.Nombre;
+                this.docente.apellidos    = data.data.persona.Apellidos;
+                this.docente.direccion    = data.data.persona.Direccion;
                 this.$Progress.finish();
                 console.log(data.data);
             }

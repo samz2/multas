@@ -1,9 +1,9 @@
 <template>
     <div class="content">
-	    <div class="container-fluid" v-if="tipo != null && tipo == 1">
+	    <div class="container-fluid" v-if="tipo != null && (tipo == 1 || tipo == 2)">
             <registroMultasT></registroMultasT>
         </div>
-        <div class="container-fluid" v-if="tipo != null && tipo != 1">
+        <div class="container-fluid" v-if="tipo != null && tipo != 1 && tipo !== 2">
             <error></error>
         </div>
     </div>	

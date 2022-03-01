@@ -31,6 +31,8 @@ Route::get('/create/{user}', 'userController@create');
 Route::get('/consultaRENIEC/{dni}', 'personaController@show');
 Route::post('/addPersona', 'personaController@store');
 Route::get('/getPersonas', 'personaController@index');
+Route::get('/getPersona', 'personaController@ver');
+Route::get('/delPersona/{dni}', 'personaController@destroy');
 
 Route::post('/addMulta', 'MultasController@store');
 Route::get('/getMultas', 'MultasController@index');

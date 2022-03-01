@@ -113,23 +113,10 @@
 	}
 </style>
 @php
-	use App\docente;
-	use App\alumno;
 	$Anio = date("Y");
 	// $nombre = "";
 	$dni = Auth::user()->user;
-	if(Auth::user()->tipo == 2)
-	{
-		
-		$objDocente = Docente::where("DNI",$dni)->first();
-		$nombre = isset($objDocente) ? $objDocente->Nombre : 'Docente'; 
-		// $docentes = DB::select("select Nombre as docente from docente where DNI = $dni");
-	}elseif (Auth::user()->tipo == 3) 
-	{
-		$objAlumno = Alumno::where("DNI",$dni)->first();
-		$nombre = isset($objAlumno) ? $objAlumno->Nombre : 'Alumno'; 
-	}
-	$nombre = isset($nombre) ? $nombre : Auth::user()->user;
+	$nombre = Auth::user()->user;
 @endphp
 {{-- layout-navbar-fixed  --}}
 <body class="hold-transition sidebar-mini layout-fixed layout-footer-fixed">
@@ -160,17 +147,8 @@
 							Administrador({{Auth::user()->user}}) <span class="caret"></span>	
 							@break
 						@case(2)
-							Docente({{$nombre}}) <span class="caret"></span>	
+							Encargado({{$nombre}}) <span class="caret"></span>	
 							@break
-						@case(3)
-							Alumno({{$nombre}}) <span class="caret"></span>	
-							@break
-						@case(4)
-							Auxiliar({{Auth::user()->user}}) <span class="caret"></span>	
-							@break			
-						@case(5)
-							User({{Auth::user()->user}}) <span class="caret"></span>	
-							@break			
 						@default
 							
 					@endswitch

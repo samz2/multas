@@ -72,8 +72,8 @@
 						<div class="content table-responsive table-full-width">
                             <v-client-table :data="personas" :columns="columns" :options="options">
 								<div slot="Acciones" slot-scope="props">
-									<button class="btn bg-indigo altoBoton" data-toggle="tooltip" v-on:click="edit(props.row.ID,props.row.Nivel)" data-placement="left" title="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-									<button class="btn btn-danger altoBoton" data-toggle="tooltip" v-on:click="deleteNivel(props.row.ID)" data-placement="left" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></button>
+									<!-- <button class="btn bg-indigo altoBoton" data-toggle="tooltip" v-on:click="edit(props.row.ID,props.row.Nivel)" data-placement="left" title="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></button> -->
+									<button class="btn btn-danger altoBoton" data-toggle="tooltip" v-on:click="deletePersona(props.row.Documento)" data-placement="left" title="Eliminar"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                 </div>
 						    </v-client-table>
                         </div>
@@ -198,7 +198,25 @@
                 console.log(error);
             })
         },
-		
+		deletePersona(id)
+        {
+            this.$Progress.start();
+            axios.get("delPersona/"+id)
+            .then(data=>
+            {
+                swal({
+					type: 'success',
+					title: 'Se ha eliminado el registro correctamente',
+					showConfirmButton: false,
+					timer: 2000
+                });
+				this.getDatos();
+                this.$Progress.finish();
+            }
+            ).catch(error=>{
+                console.log(error);
+            })
+        },
 		ocultar(id){
 			if(id == '1')
 			{

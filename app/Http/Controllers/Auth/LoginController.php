@@ -59,9 +59,9 @@ class LoginController extends Controller
         return 'user';
     }
 
-    public function logout(Request $request)
-    {
-        $this->performLogout($request);
-        return redirect('https://sollertia.edu.pe');
-    }
+    // public function logout(Request $request)
+    // {
+    //     $this->performLogout($request);
+    //     return redirect('https://sollertia.edu.pe');
+    // }
 }
