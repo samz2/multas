@@ -46,7 +46,7 @@
                             <div class="row">
 								<label for="" class="col-md-2">Año:</label>
 								<div class="col-md-4">
-									<input type="text" class="form-control" v-model="tarjeta.year">
+									<input type="number" max="2022" min="1995" class="form-control" v-model="tarjeta.year">
 								</div>
 							</div>
                             <br>
@@ -128,7 +128,7 @@
                 serie	    : null,
                 motor	    : null,
                 color	    : null,
-                year		: null,
+                year		: 2022,
                 empresa		: null,
                 afiliado	: null,
 			},

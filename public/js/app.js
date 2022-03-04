@@ -100589,7 +100589,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				serie: null,
 				motor: null,
 				color: null,
-				year: null,
+				year: 2022,
 				empresa: null,
 				afiliado: null
 			},
@@ -100930,7 +100930,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "form-control",
-                        attrs: { type: "text" },
+                        attrs: { type: "number", max: "2022", min: "1995" },
                         domProps: { value: _vm.tarjeta.year },
                         on: {
                           input: function($event) {
