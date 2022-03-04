@@ -93,6 +93,7 @@ const routes = [
     { path: '/multas', component: require('./components/admin/multas.vue') },
     { path: '/registromultas', component: require('./components/admin/registromultas.vue') },
     { path: '/reportemultas', component: require('./components/admin/reportemultas.vue') },
+    { path: '/tarjeta', component: require('./components/admin/tarjeta.vue') },
 ];
 
 // Create the route instance
@@ -126,6 +127,7 @@ Vue.component('MultasT', require('./components/templates/MultasT.vue'));
 Vue.component('perfil2', require('./components/templates/perfil2.vue'));
 Vue.component('perfil3', require('./components/templates/perfil3.vue'));
 Vue.component('error', require('./components/templates/error.vue'));
+Vue.component('tarjetaT', require('./components/templates/tarjetaT.vue'));
 Vue.component('v-select', vSelect);
 
 

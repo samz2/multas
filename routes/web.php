@@ -41,6 +41,11 @@ Route::get('/getMultasImpagas/{fechai}/{fechaf}', 'MultasController@multas');
 Route::get('/reporte/{fechai}/{fechaf}', 'MultasController@reporte');
 Route::get('/getResponse', 'MultasController@create');
 
+Route::post('/addTarjeta', 'TarjetasController@store');
+Route::get('/getTarjetas', 'TarjetasController@index');
+Route::get('/getTarjetasLista', 'TarjetasController@show');
+Route::get('/delTarjeta/{placa}', 'TarjetasController@destroy');
+
 Route::post('/addRegistro', 'RegistroMultasController@store');
 //rutas administrador
 
