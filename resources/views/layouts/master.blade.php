@@ -298,6 +298,14 @@
 										</router-link>
 									</li>
 								</ul>
+								<ul class="nav nav-treeview">
+									<li class="nav-item">
+										<router-link to="/tarjeta" class="nav-link">
+										    <i class="fa fa-list"></i>
+											<p>Tarjeta de circulación</p>
+										</router-link>
+									</li>
+								</ul>
 							</li>
 							
 							@break
